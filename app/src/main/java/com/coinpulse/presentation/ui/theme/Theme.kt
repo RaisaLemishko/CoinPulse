@@ -8,12 +8,12 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import com.coinpulse.ui.theme.ColorPrimary
-import com.coinpulse.ui.theme.DarkGray
-import com.coinpulse.ui.theme.MediumGray
-import com.coinpulse.ui.theme.Shapes
-import com.coinpulse.ui.theme.TextWhite
-import com.coinpulse.ui.theme.Typography
+import com.coinpulse.presentation.ui.theme.ColorPrimary
+import com.coinpulse.presentation.ui.theme.DarkGray
+import com.coinpulse.presentation.ui.theme.MediumGray
+import com.coinpulse.presentation.ui.theme.Shapes
+import com.coinpulse.presentation.ui.theme.TextWhite
+import com.coinpulse.presentation.ui.theme.Typography
 
 private val DarkColorPalette = darkColorScheme(
     primary = ColorPrimary,

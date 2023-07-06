@@ -1,4 +1,4 @@
-package com.coinpulse
+package com.coinpulse.presentation
 
 import CoinPulseTheme
 import android.os.Bundle

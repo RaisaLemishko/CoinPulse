@@ -1,4 +1,4 @@
-package com.coinpulse.ui.theme
+package com.coinpulse.presentation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Shapes

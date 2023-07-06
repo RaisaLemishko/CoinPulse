@@ -1,4 +1,4 @@
-package com.coinpulse.ui.theme
+package com.coinpulse.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
