@@ -39,9 +39,9 @@ fun CoinListScreen(
 
             }
         }
-        if (state.error.isNotBlank()) {
+        if (state.error.asString().isNotBlank()) {
             Text(
-                text = state.error,
+                text = state.error.asString(),
                 color = MaterialTheme.colorScheme.error,
                 textAlign = TextAlign.Center,
                 modifier = Modifier

@@ -20,10 +20,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle.Companion.Italic
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.coinpulse.R
 import com.coinpulse.presentation.coin_details.CoinDetailsViewModel
 import com.google.accompanist.flowlayout.FlowRow
 
@@ -40,8 +42,7 @@ fun CoinDetailsScreen(
             ) {
                 item {
                     Row(
-                        modifier = Modifier
-                            .fillMaxWidth(),
+                        modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = SpaceBetween
                     ) {
                         Text(
@@ -50,7 +51,8 @@ fun CoinDetailsScreen(
                             modifier = Modifier.weight(8f)
                         )
                         Text(
-                            text = if (coin.isActive) "active" else "inactive",
+                            text = if (coin.isActive) stringResource(R.string.active)
+                            else stringResource(R.string.inactive),
                             color = if (coin.isActive) Color.Green else Color.Red,
                             fontStyle = Italic,
                             textAlign = TextAlign.End,
@@ -61,13 +63,11 @@ fun CoinDetailsScreen(
                     }
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
-                        text = coin.description,
-                        style = MaterialTheme.typography.bodySmall
+                        text = coin.description, style = MaterialTheme.typography.bodySmall
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
-                        text = "Tags",
-                        style = MaterialTheme.typography.headlineSmall
+                        text = stringResource(R.string.tags), style = MaterialTheme.typography.headlineSmall
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     FlowRow(
@@ -81,15 +81,14 @@ fun CoinDetailsScreen(
                     }
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
-                        text = "Team members",
+                        text = stringResource(R.string.team_members),
                         style = MaterialTheme.typography.headlineSmall
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                 }
-                itemsIndexed(coin.team) { index, teamMember ->
+                itemsIndexed(coin.team) { _, teamMember ->
                     TeamListItem(
-                        teamMember = teamMember,
-                        modifier = Modifier
+                        teamMember = teamMember, modifier = Modifier
                             .fillMaxWidth()
                             .padding(10.dp)
                     )
@@ -97,9 +96,9 @@ fun CoinDetailsScreen(
                 }
             }
         }
-        if (state.error.isNotBlank()) {
+        if (state.error.asString().isNotBlank()) {
             Text(
-                text = state.error,
+                text = state.error.asString(),
                 color = MaterialTheme.colorScheme.error,
                 textAlign = TextAlign.Center,
                 modifier = Modifier

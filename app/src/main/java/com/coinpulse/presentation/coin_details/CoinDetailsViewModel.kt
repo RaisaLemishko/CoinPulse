@@ -5,8 +5,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.coinpulse.R
 import com.coinpulse.common.Constants.PARAM_COIN_ID
 import com.coinpulse.common.Resource
+import com.coinpulse.common.UiText
 import com.coinpulse.domain.use_case.get_coin_details.GetCoinDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -41,7 +43,7 @@ class CoinDetailsViewModel
                 is Resource.Error -> {
                     _state.value = CoinDetailsState(
                         error = result.message
-                            ?: "An unexpected error occurred"
+                            ?: UiText.StringResource(R.string.unexpected_error_occurred)
                     )
                 }
 
